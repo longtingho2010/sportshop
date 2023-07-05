@@ -1,0 +1,29 @@
+.categoryPage-item {
+  border: none;
+  margin: 10px;
+  width: 20%;
+  cursor: pointer;
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.categoryPage-item:hover {
+  border: 1px solid gray;
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.categoryPage-item-img img {
+  width: 100%;
+}
+
+.categoryPage-item-info {
+  border-top: 1px solid lightgray;
+  padding-top: 10px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 500;
+}

@@ -1,0 +1,12 @@
+.categoryPage-container {
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryPage-item-container {
+  /* padding: 0;
+  margin: 0 auto; */
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,83 @@
+.productpage-content {
+  display: flex;
+  padding: 50px;
+}
+
+.productpage-img-container {
+  flex: 1;
+}
+
+.productpage-img-container img {
+  width: 80%;
+}
+
+.productpage-info-container {
+  flex: 1;
+}
+
+.productpage-info-container p {
+  margin: 20px 0;
+}
+
+.productpage-info-container h1 span {
+  font-size: 25px;
+  font-weight: normal;
+  margin-left: 20px;
+}
+
+.size-btn button {
+  border: 1px solid lightgray;
+  background-color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.size-btn button.selected {
+  background-color: #000;
+  color: #fff;
+}
+
+.productpage-amount-container {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.productpage-amount-container button {
+  background-color: #000;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  padding: 5px 15px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productpage-amount-container span {
+  margin: 0 10px;
+  font-size: 28px;
+}
+
+.add-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.add-btn span {
+  margin-right: 10px;
+  font-size: 25px;
+}

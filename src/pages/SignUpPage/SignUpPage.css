@@ -1,0 +1,51 @@
+.signuppage-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://spurproductions.com/wp-content/uploads/2016/09/nikerunningseattle06.jpg")
+      center no-repeat;
+  background-size: cover;
+}
+
+.signuppage-contant {
+  padding: 20px;
+  width: 40%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.signuppage-contant h1 {
+  text-align: center;
+}
+.signuppage-contant form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.signuppage-contant form input {
+  flex: 1;
+  padding: 10px;
+  min-width: 60%;
+  margin: 0 10px 20px 0;
+  outline-color: #000;
+}
+
+/* .signuppage-contant form input:invalid {
+  border: 1px solid red;
+} */
+
+.signuppage-contant form button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  min-width: 40%;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
