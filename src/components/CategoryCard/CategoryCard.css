@@ -21,6 +21,7 @@
   align-items: center;
   flex-direction: column;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  text-align: center;
 }
 
 .categoryCard-info-container h1 {
@@ -45,4 +46,20 @@
 .categoryCard-info-container button:hover {
   transform: scale(1.2);
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 900px) {
+  .categoryCard-info-container h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .categoryCard-container img {
+    height: 40vh;
+  }
+
+  .categoryCard-info-container {
+    height: 99%;
+  }
 }

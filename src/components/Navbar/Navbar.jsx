@@ -2,13 +2,14 @@ import { Alert, Badge, Box, Menu, Modal } from "@mui/material";
 import {
   ArrowDropDownRounded,
   Close,
+  CloseRounded,
   MenuRounded,
   Search,
   ShoppingCart,
 } from "@mui/icons-material";
 import "./Navbar.css";
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CartState } from "../../context/Context";
 import { auth } from "../../firebase";
 import {
@@ -32,18 +33,39 @@ const style = {
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const { totalCartItems } = CartState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authUser, setAuthUser] = useState(null);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [mendropdown, setMenDropdown] = useState(false);
+  const [womendropdown, setWoenDropdown] = useState(false);
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const location = useLocation();
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setError("");
+    setEmail("");
+    setPassword("");
+  };
+
+  const toggleMenu = () => {
+    isMenuOpened ? setIsMenuOpened(false) : setIsMenuOpened(true);
+  };
+
+  const toggleDropdown = () => {
+    mendropdown ? setMenDropdown(false) : setMenDropdown(true);
+  };
+
+  const womenToggleDropdown = () => {
+    womendropdown ? setWoenDropdown(false) : setWoenDropdown(true);
+  };
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
-    // window.width < 730 ? setActive(true) : setActive(false)
   };
 
   useEffect(() => {
@@ -59,6 +81,7 @@ const Navbar = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userdetails) => {
         console.log(userdetails);
+        setError("");
         handleClose();
         setEmail("");
         setPassword("");
@@ -86,6 +109,10 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpened(false);
+  }, [location]);
+
   return (
     <div className={active ? "container active" : "container"}>
       <div className="wrapper">
@@ -103,7 +130,7 @@ const Navbar = () => {
         <div className="right">
           {!authUser ? (
             <>
-              <div className="right-item ">
+              <div className="right-item signOut-btn">
                 <Link
                   to="signup"
                   style={{ textDecoration: "none", color: "#000" }}
@@ -112,7 +139,7 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="right-item">
-                <span className="res-menu" onClick={handleOpen}>
+                <span className="signOut-btn" onClick={handleOpen}>
                   Sign In
                 </span>
                 <Modal
@@ -174,23 +201,138 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="right-item menu-icon">
-            <MenuRounded />
+            {isMenuOpened ? (
+              <CloseRounded onClick={toggleMenu} />
+            ) : (
+              <MenuRounded onClick={toggleMenu} />
+            )}
           </div>
         </div>
       </div>
+      {active ? (
+        <>
+          <hr />
+          <div className="menu">
+            <div className="menu-item">
+              <Link style={{ textDecoration: "none" }} to="genres/specialItems">
+                <p className="menu-item-title">Special Items</p>
+              </Link>
+              <div className="dropdown">
+                <p className="menu-item-title">
+                  <Link
+                    to="genres/men"
+                    style={{ textDecoration: "none", color: "#000" }}
+                  >
+                    Men{" "}
+                  </Link>{" "}
+                </p>
 
-      <hr />
-      <div className="menu">
-        <div className="menu-item">
+                <div className="dropdown-item">
+                  <Link to="genres/men/top" style={{ textDecoration: "none" }}>
+                    <p>Top & T-shirt</p>
+                  </Link>
+                  <Link
+                    to="genres/men/bottom"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p>Bottom</p>
+                  </Link>
+                  <Link
+                    to="genres/men/jacket"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p>Jacket</p>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="dropdown">
+                <p className="menu-item-title">
+                  <Link
+                    to="genres/women"
+                    style={{ textDecoration: "none", color: "#000" }}
+                  >
+                    Women{" "}
+                  </Link>
+                </p>
+                <div className="dropdown-item">
+                  <Link
+                    to="genres/women/top"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p>Top & T-shirt</p>
+                  </Link>
+                  <Link
+                    to="genres/women/bottom"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p>Bottom</p>
+                  </Link>
+                  <Link
+                    to="genres/women/jacket"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p>Jacket</p>
+                  </Link>
+                </div>
+              </div>
+
+              <Link to="genres/kids" style={{ textDecoration: "none" }}>
+                <p className="menu-item-title">Kids</p>
+              </Link>
+            </div>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
+      {/************************** responsive menu *************************/}
+      <div className={isMenuOpened ? "res-menu active" : "res-menu"}>
+        <div className="res-menu-item">
+          {!authUser ? (
+            <>
+              <div>
+                <Link
+                  to="signup"
+                  style={{ textDecoration: "none", color: "#000" }}
+                >
+                  <p className="res-menu-item-title ">Sign Up</p>
+                </Link>
+              </div>
+              <div>
+                <p className="res-menu-item-title " onClick={handleOpen}>
+                  Sign In
+                </p>
+              </div>
+            </>
+          ) : (
+            <div onClick={userSignOut} className="signOut-btn">
+              <p className="res-menu-item-title">Sign Out</p>
+            </div>
+          )}
+
           <Link style={{ textDecoration: "none" }} to="genres/specialItems">
-            <p className="menu-item-title">Special Items</p>
+            <p className="res-menu-item-title">Special Items</p>
           </Link>
-          <div className="dropdown">
-            <Link to="genres/men" style={{ textDecoration: "none" }}>
-              <p className="menu-item-title">
-                Men <ArrowDropDownRounded className="dropdown-btn" />
-              </p>
-              <div className="dropdown-item">
+          <div className="res-dropdown">
+            <p className="res-menu-item-title">
+              <Link
+                to="genres/men"
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                Men{" "}
+              </Link>{" "}
+              <span>
+                <ArrowDropDownRounded
+                  style={{ fontSize: 50 }}
+                  onClick={toggleDropdown}
+                  className="dropdown-btn"
+                />
+              </span>
+            </p>
+            {mendropdown ? (
+              <div className="res-dropdown-item">
                 <Link to="genres/men/top" style={{ textDecoration: "none" }}>
                   <p>Top & T-shirt</p>
                 </Link>
@@ -201,15 +343,29 @@ const Navbar = () => {
                   <p>Jacket</p>
                 </Link>
               </div>
-            </Link>
+            ) : (
+              ""
+            )}
           </div>
 
-          <div className="dropdown">
-            <Link to="genres/women" style={{ textDecoration: "none" }}>
-              <p className="menu-item-title">
-                Women <ArrowDropDownRounded className="dropdown-btn" />
-              </p>
-              <div className="dropdown-item">
+          <div className="res-dropdown">
+            <p className="res-menu-item-title">
+              <Link
+                to="genres/women"
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                Women{" "}
+              </Link>
+              <span>
+                <ArrowDropDownRounded
+                  style={{ fontSize: 50 }}
+                  className="dropdown-btn"
+                  onClick={womenToggleDropdown}
+                />
+              </span>
+            </p>
+            {womendropdown ? (
+              <div className="res-dropdown-item">
                 <Link to="genres/women/top" style={{ textDecoration: "none" }}>
                   <p>Top & T-shirt</p>
                 </Link>
@@ -226,11 +382,13 @@ const Navbar = () => {
                   <p>Jacket</p>
                 </Link>
               </div>
-            </Link>
+            ) : (
+              ""
+            )}
           </div>
 
           <Link to="genres/kids" style={{ textDecoration: "none" }}>
-            <p className="menu-item-title">Kids</p>
+            <p className="res-menu-item-title">Kids</p>
           </Link>
         </div>
       </div>

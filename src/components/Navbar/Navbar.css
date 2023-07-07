@@ -5,6 +5,7 @@
   transition: all 0.5s ease-in-out;
   width: 100%;
   z-index: 99;
+  /* overflow-x: hidden; */
 }
 
 .wrapper {
@@ -112,6 +113,10 @@ hr {
   position: relative;
 }
 
+.dropdown-btn {
+  display: block;
+}
+
 .dropdown-item {
   display: none;
   position: absolute;
@@ -202,6 +207,10 @@ hr {
   font-size: 20px;
 }
 
+.res-menu {
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   .wrapper {
     padding: 0px 5px;
@@ -230,7 +239,6 @@ hr {
 
   .right {
     flex: 2;
-    margin-right: 40px;
   }
 
   .right-item {
@@ -247,19 +255,57 @@ hr {
     display: none;
   }
 
-  .menu-item {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: aqua;
+  .menu {
+    display: none;
   }
 
-  .menu-item-title {
-    margin-left: 30px;
-    justify-content: flex-start;
+  .res-menu {
+    display: block;
+    box-sizing: border-box;
+    padding: 0 40px;
+    z-index: 1000;
+    position: absolute;
+    background-color: rgba(170, 170, 170, 0.97);
+    width: 100%;
+    top: 100%;
+    height: 100vh;
+    transition: 0.5s ease-in-out;
+    /* transform: translateX(100vw); */
+    right: -100%;
+  }
+
+  .res-menu.active {
+    /* transform: translateX(0); */
+    right: 0;
+  }
+
+  .res-menu-item p {
+    color: #000;
+    font-size: 25px;
+  }
+
+  .res-menu-item-title {
+    border-bottom: 1px solid rgb(132, 132, 132);
+    box-sizing: border-box;
+    height: 50px;
+    margin: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .res-dropdown-item {
+    background-color: #444444;
+    padding: 10px 20px;
+    margin: 10px 0;
+  }
+
+  .res-dropdown-item p {
+    color: #fff;
+    margin: 10px 0 0 0;
+  }
+
+  .signOut-btn {
+    display: none;
   }
 }
