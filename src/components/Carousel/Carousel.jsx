@@ -33,7 +33,9 @@ const Carousel = () => {
         className="carousel-arrow arrow-left"
         onClick={() => handleClick("left")}
       >
-        <ArrowCircleLeftOutlined sx={{ fontSize: 90 }} />
+        <ArrowCircleLeftOutlined
+          sx={{ fontSize: { xs: 50, sm: 70, lg: 90 } }}
+        />
       </div>
 
       <CarouselSlider sliderPage={sliderPage}>
@@ -58,7 +60,9 @@ const Carousel = () => {
         className="carousel-arrow arrow-right"
         onClick={() => handleClick("right")}
       >
-        <ArrowCircleRightOutlined sx={{ fontSize: 90 }} />
+        <ArrowCircleRightOutlined
+          sx={{ fontSize: { xs: 50, sm: 70, lg: 90 } }}
+        />
       </div>
     </div>
   );

@@ -27,3 +27,43 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+@media only screen and (max-width: 1200px) {
+  .categoryPage-item {
+    margin: 10px;
+    width: 20%;
+    padding: 10px;
+  }
+  .categoryPage-item-info {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .categoryPage-item-info {
+    font-size: 13px;
+  }
+
+  .categoryPage-item {
+    padding: 0px;
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 632px) {
+  .categoryPage-item {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .categoryPage-item {
+    width: 43%;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .categoryPage-item {
+    width: 80%;
+  }
+}

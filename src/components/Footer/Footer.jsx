@@ -47,13 +47,13 @@ const Footer = () => {
           <h2>SOCIAL</h2>
           <div className="footer-social-media-container">
             <div className="footer-social-media">
-              <Facebook />
+              <Facebook sx={{ fontSize: { xs: 20, sm: 25 } }} />
             </div>
             <div className="footer-social-media">
-              <YouTube />
+              <YouTube sx={{ fontSize: { xs: 20, sm: 25 } }} />
             </div>
             <div className="footer-social-media">
-              <Instagram />
+              <Instagram sx={{ fontSize: { xs: 20, sm: 25 } }} />
             </div>
           </div>
         </div>

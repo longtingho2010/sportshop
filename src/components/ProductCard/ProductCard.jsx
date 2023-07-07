@@ -10,8 +10,8 @@ const ProductCard = ({ item }) => {
           <img alt="" src={item.img} />
         </div>
         <div className="categoryPage-item-info">
-          <span style={{ width: "75%" }}>{item.title}</span>
-          <span>$ {item.price}</span>
+          <span style={{ width: "70%", marginRight: "5px" }}>{item.title}</span>
+          <span style={{ width: "25%%" }}>${item.price}</span>
         </div>
       </div>
     </Link>

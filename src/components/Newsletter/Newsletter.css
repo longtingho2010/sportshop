@@ -16,6 +16,7 @@
   font-size: 25px;
   margin-bottom: 20px;
   font-weight: 300;
+  text-align: center;
 }
 
 .newsletter-input-container {
@@ -57,4 +58,20 @@
 .newsletter-input-container button:hover {
   background-color: rgb(255, 174, 0);
   transform: scale(1.15);
+}
+
+@media only screen and (max-width: 800px) {
+  .newsletter-description {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 555px) {
+  .newsletter-container {
+    padding: 20px;
+  }
+
+  .newsletter-container h1 {
+    font-size: 40px;
+  }
 }

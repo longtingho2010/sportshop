@@ -309,3 +309,21 @@ hr {
     display: none;
   }
 }
+
+@media only screen and (max-width: 525px) {
+  .logo {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  .logo {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 333px) {
+  .logo {
+    font-size: 18px;
+  }
+}

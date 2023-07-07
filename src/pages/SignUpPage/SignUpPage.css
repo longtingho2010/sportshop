@@ -49,3 +49,38 @@
   cursor: pointer;
   font-size: 20px;
 }
+
+@media only screen and (max-width: 500px) {
+  .signuppage-contant h1 {
+    font-size: 25px;
+  }
+
+  .signuppage-contant form button {
+    min-width: 40%;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .signuppage-contant h1 {
+    font-size: 20px;
+  }
+
+  .signuppage-contant form input {
+    padding: 5px;
+    margin: 0 10px 15px 0;
+  }
+}
+
+@media only screen and (max-width: 383px) {
+  .signuppage-contant form input {
+    width: 80%;
+  }
+
+  .signuppage-contant form button {
+    min-width: 40%;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
