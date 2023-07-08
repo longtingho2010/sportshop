@@ -51,6 +51,7 @@ const ShoppingCartPage = () => {
                         <b>Quantity:</b>{" "}
                       </span>
                       <Add
+                        sx={{ fontSize: { xs: 14, sm: 16, md: 20 } }}
                         style={{ cursor: "pointer" }}
                         onClick={() =>
                           dispatch({
@@ -61,6 +62,7 @@ const ShoppingCartPage = () => {
                       />
                       <span className="quantity">{item.qty}</span>
                       <Remove
+                        sx={{ fontSize: { xs: 14, sm: 16, md: 20 } }}
                         style={{ cursor: "pointer" }}
                         onClick={() =>
                           dispatch({
@@ -74,13 +76,14 @@ const ShoppingCartPage = () => {
                   </div>
                   <div>
                     <Delete
+                      sx={{ fontSize: { xs: 22, sm: 24, md: 30, lg: 35 } }}
                       onClick={() =>
                         dispatch({
                           type: "remove_from_cart",
                           payload: item,
                         })
                       }
-                      style={{ fontSize: 35 }}
+                      // style={{ fontSize: 35 }}
                       className="del-btn"
                     />
                   </div>
@@ -96,15 +99,15 @@ const ShoppingCartPage = () => {
             <h1>ORDER SUMMARY</h1>
             <div className="sum-content">
               <span>Shipping Fee: </span>
-              <span>$ 30</span>
+              <span>$30</span>
             </div>
             <div className="sum-content">
               <span>Shipping Discount: </span>
-              <span>- $30</span>
+              <span>-$30</span>
             </div>
             <div className="sum-content sum-total">
               <span>Total: </span>
-              <span>$ {total}</span>
+              <span>${total}</span>
             </div>
             <button>CHEUK OUT NOW</button>
           </div>

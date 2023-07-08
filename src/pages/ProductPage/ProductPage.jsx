@@ -56,25 +56,40 @@ const ProductPage = () => {
         </div>
         <div className="productpage-info-container">
           <h1>{product[0].title}</h1>
-          <p
-            style={{
-              fontSize: "18px",
-              color: "orange",
-              textDecoration: "underline",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Discount style={{ marginRight: "10px" }} />
+          <p className="productpage-discount">
+            <Discount
+              sx={{ fontSize: { xs: 20, md: 30 } }}
+              style={{ marginRight: "10px" }}
+            />
             Extra 20% off on 2+ selected discounted items. Selected full-priced
             items can join the bundle
           </p>
-          <p style={{ fontSize: "20px", marginBottom: "40px" }}>
-            {product[0].des}
-          </p>
-          <p style={{ fontSize: "30px" }}>
-            <b>HKD$</b> {product[0].price}
-          </p>
+          <p className="productpage-des">{product[0].des}</p>
+          <div className="add-btn-container">
+            <p className="productpage-price">
+              <b>HKD $</b>
+              {product[0].price}
+            </p>
+            <div>
+              {/* <div className="productpage-amount-container">
+                <button onClick={delQuantity}>-</button>
+                <span>{quantity}</span>
+                <button onClick={addQuantity}>+</button>
+              </div> */}
+              <button
+                className="add-btn"
+                onClick={() =>
+                  dispatch({
+                    type: "add_to_cart",
+                    payload: product[0],
+                  })
+                }
+              >
+                <span>ADD TO CART</span>
+                <ShoppingCart sx={{ fontSize: { xs: 16, sm: 25 } }} />
+              </button>
+            </div>
+          </div>
 
           {/* <p>CHOOSE SIZE</p> */}
           {/* <div className="size-btn">
@@ -103,25 +118,6 @@ const ProductPage = () => {
               XL
             </button>
           </div> */}
-          <div>
-            {/* <div className="productpage-amount-container">
-                <button onClick={delQuantity}>-</button>
-                <span>{quantity}</span>
-                <button onClick={addQuantity}>+</button>
-              </div> */}
-            <button
-              className="add-btn"
-              onClick={() =>
-                dispatch({
-                  type: "add_to_cart",
-                  payload: product[0],
-                })
-              }
-            >
-              <span>ADD TO CART</span>
-              <ShoppingCart style={{ fontSize: 25 }} />
-            </button>
-          </div>
         </div>
       </div>
     </div>
